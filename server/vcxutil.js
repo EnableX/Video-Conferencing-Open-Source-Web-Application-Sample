@@ -55,6 +55,18 @@ vcxutil.connectServer = function (options, data, callback) {
     else
         request.end(data);
 }
+vcxutil.validAuthInvite = function(data,basic){
+    var file = basic.options.users;
+    var ret = false;
+    if(data && data.name && data.pass){
+        for(var i=0;i<file.length;i++){
+            if(data.name === file[i].username && basic.validate(file[i].hash,data.pass)){
+                ret = true;
+            }
+        }
+    }
+    return ret;
+}
 
 var module = module || {};
 module.exports = vcxutil;

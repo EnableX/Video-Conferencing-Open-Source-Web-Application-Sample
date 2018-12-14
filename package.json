@@ -16,6 +16,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "base-64": "^0.1.0",
+    "cryptr": "^3.0.0",
+    "express-session": "^1.15.6",
+    "http-auth": "^3.2.3",
+    "localStorage": "^1.0.3",
     "log4js": "^1.0.1"
   }
 }

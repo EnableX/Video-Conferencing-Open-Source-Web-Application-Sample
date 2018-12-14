@@ -17,6 +17,8 @@
 
 var vcxconfig={};
 
+vcxconfig.pwdFilePath = "files/users.htpasswd"
+
 vcxconfig.SERViCE={
     name: "EnableX Sample Web App",                // Name of the App
     version: "1.0.0",                               // Version

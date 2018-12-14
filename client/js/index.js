@@ -15,7 +15,8 @@ window.onload = function () {
     $(".login_join_div").show();
 
 }
-
+var username    = "demo" ;
+var password    = "enablex";
 
 // Verifies login credentials before moving to Conference page
 
@@ -107,6 +108,7 @@ var createRoom = function (callback) {
     };
     xhttp.open("POST", "/createRoom/", true);
     xhttp.setRequestHeader('Content-Type', 'application/json');
+    xhttp.setRequestHeader ("Authorization", "Basic " + btoa(username + ":" + password));
     xhttp.send();
 };
 
