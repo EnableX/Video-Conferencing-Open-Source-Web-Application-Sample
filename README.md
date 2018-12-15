@@ -19,10 +19,7 @@ When developing a Node Application with EnxRtc.js make sure to include the updat
 
 ## 2. Demo
 
-This Sample Web App has been setup for Live Demostration here:
-https://webapp-multiparty.enablex.io/
-
-You need to get connected to our [Sales Team](sales@enablex.io) to get access for the Demo Applicaiton.
+To get Live Demo of this Sample App, please get connected to our [Sales Team](mailto:sales@enablex.io).
 
 
 
