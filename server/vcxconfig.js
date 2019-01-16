@@ -43,7 +43,7 @@ vcxconfig.Certificate={
 // Enbalex Server API Infomration
 
 vcxconfig.SERVER_API_SERVER={
-    host: 'api-dev.vcloudx.com',                    // FQDN of Service
+    host: 'api.enablex.io',                    // FQDN of Service
     port: '',                                       // PORT of Service (If specified by EnableX)
 };
 
