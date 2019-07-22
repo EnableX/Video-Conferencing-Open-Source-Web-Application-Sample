@@ -157,17 +157,11 @@ app.post('/createToken/', function (req, res) {
 
 
 app.post('/createRoom/', function (req, res) {
-    var user = basicAuth(req);
-    if(vcxutil.validAuthInvite(user, basic)){ // Here you need some logic to validate authentication
-        vcxroom.createRoom(function (status, data) {
-            res.send(data);
-            res.status(200);
-        });
-    } else {
-        res.set({
-            'WWW-Authenticate': 'Basic realm="simple-admin"'
-        }).send(401);
-    }
+    vcxroom.createRoom(function (status, data) {
+        res.send(data);
+        res.status(200);
+    });
+
 });
 
 
