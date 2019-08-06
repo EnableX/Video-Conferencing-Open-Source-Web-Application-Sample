@@ -28,7 +28,7 @@ To get Live Demo of this Sample App, please get connected to our [Sales Team](ma
 
 ### 3.1 Pre-Requisites
 
-#### 3.1.1 App Id and Api Key 
+#### 3.1.1 App Id and App Key 
 
 * Register with EnableX [https://www.enablex.io] 
 * Create your Application
