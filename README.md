@@ -17,12 +17,9 @@ When developing a Node Application with EnxRtc.js make sure to include the updat
 
 
 
-## 2. Demo
+## 2. Trial
 
-Visit Demo Zone (https://portal.enablex.io/demo-zone/) to request a Guided Demo or Demo Access to different type of application available there.
-
-You may also try our Video Meeting and Webinar solutions here: https://enablex.io/vcfree
-
+Sign up for a free trial https://portal.enablex.io/cpaas/trial-sign-up/ or try our multiparty video chat https://try.enablex.io/
 
 
 ## 3. Installation
@@ -32,7 +29,7 @@ You may also try our Video Meeting and Webinar solutions here: https://enablex.i
 
 #### 3.1.1 App Id and App Key 
 
-* Register with EnableX [https://www.enablex.io] 
+* Register with EnableX [https://portal.enablex.io/cpaas/trial-sign-up/] 
 * Create your Application
 * Get your App ID and App Key delivered to your Email
 * Clone or download this Repository [https://github.com/EnableX/Video-Conferencing-Open-Source-Web-Application-Sample.git] & follow the steps further 
