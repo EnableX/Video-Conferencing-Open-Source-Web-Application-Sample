@@ -29,7 +29,7 @@ Sign up for a free trial https://portal.enablex.io/cpaas/trial-sign-up/ or try o
 * Register with EnableX [https://portal.enablex.io/cpaas/trial-sign-up/] 
 * Create your Application
 * Get your App ID and App Key
-* Clone this Repository `https://github.com/EnableX/Video-Conferencing-Open-Source-Web-Application-Sample.git --recursive` & follow the steps further 
+* Clone this Repository `git clone https://github.com/EnableX/Video-Conferencing-Open-Source-Web-Application-Sample.git --recursive` & follow the steps further 
 
 #### 3.1.2 SSL Certificates
 
