@@ -87,7 +87,7 @@ Run `node server.js` inside `server` folder for starting your Server.
 * You can share the Room-ID with anyone to join your Conference.
 
 
-## 4 Server API
+## 4. Server API
 
 EnableX Server API is a Rest API service meant to be called from Partners' Application Server to provision video enabled
 meeting rooms. API Access is given to each Application through the assigned App ID and App Key. So, the App ID and App Key
@@ -101,7 +101,7 @@ To know more about Server API, go to:
 https://developer.enablex.io/video-api/server-api/
 
 
-## 5 Client API
+## 5. Client API
 
 Client End Point Application uses Web Toolkit EnxRtc.js to communicate with EnableX Servers to initiate and manage RTC Communications.
 
