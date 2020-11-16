@@ -41,13 +41,21 @@ However you may use self-signed Certificate to run this application locally. The
 * https://www.sslchecker.com/csr/self_signed
 * https://www.akadia.com/services/ssh_test_certificate.html  
 
-As you have Certificate or created a Self-Signed Certificate, create a directory "certs" under your Sample Web App Directory. Copy your Certificate files (.key and .crt files)  to this directory. 
+The following can also be used to create a self-signed certificate.
+```javascript
+  cd Video-Conferencing-Open-Source-Web-Application-Sample
+  cd server
+  mkdir certs
+  sudo openssl req -x509 -newkey rsa:4096 -keyout ./certs/example.key -out ./certs/example.crt -days 10000 -nodes
+  sudo chmod 755 ./certs/example.*
+  cd ..
+```
 
 #### 3.1.3 Configure
 
 Before you can run this application, configure the service by editing `server/vcxconfig.js` file to meet project requirement:
 ```javascript 
-  vcxconfig.SERViCE = {
+  vcxconfig.SERVICE = {
     name: "EnableX Sample Web App",     // Name of the Application [Change optional]
     version: "1.0.0",                   // Version [Change optional]
     path: "/v1",                        // Route [Default /v1]
@@ -57,9 +65,9 @@ Before you can run this application, configure the service by editing `server/vc
   };
 
   vcxconfig.Certificate = {
-    ssl_key:    "../certs/yourdomain.key",  // Use the certificate ".key" [self signed or registered]
-    ssl_cert :  "../certs/yourdomain.crt",  // Use the certificate ".crt" [self signed or registered]
-    sslCaCerts :  ["../cert/yourdomain.ca-bundle"]    // Use the certificate CA[chain] [self signed or registered]
+    ssl_key:    "certs/example.key",   // Use the certificate ".key" [self signed or registered]
+    ssl_cert :  "certs/example.crt",   // Use the certificate ".crt" [self signed or registered]
+    sslCaCerts : ''                       // Use the certificate CA[chain] [self signed or registered]
   };
 
   vcxconfig.SERVER_API_SERVER = {
@@ -78,6 +86,11 @@ Run `npm install --save` to build the project and the build artifacts will be st
 #### 3.2.1 Run Server
 
 Run `node server.js` inside `server` folder for starting your Server. 
+
+```javascript
+  cd server
+  node server.js
+```
 
 #### 3.2.2 Test 
 
