@@ -1,46 +1,39 @@
 /// ////////////////////////////////////////////////////
 //
-// File: vcxroom.js
 // This file does RestAPI Call to communicate with EnableX Server API
 //
 /// //////////////////////////////////////////////////
 
 const fs = require('fs');
-const vcxconfig = require('./vcxconfig');
+require('dotenv').config();
 const vcxutil = require('./vcxutil');
 
 const vcxroom = {};
 
-const obj = {
-  name: 'test Room',
-  owner_ref: 'xdada',
+// room object for creating room for one to one call
+const roomObj = {
+  name: 'room for one to one video meeting',
+  owner_ref: 'github sample',
   settings: {
-    description: '',
+    description: 'Video-Conferencing-Open-Source-Web-Application-Sample',
     scheduled: false,
-    scheduled_time: '',
-    participants: '6',
-    duration: '60',
-    auto_recording: false,
-    active_talker: true,
-    wait_moderator: false,
+    adhoc: true,
+    participants: '2',
+    duration: '30',
     quality: 'SD',
-    adhoc: false,
-    mode: 'group',
-  },
-  sip: {
-    enabled: false,
+    auto_recording: false,
   },
 };
 
 // room object for creating room with multi party calling
 const multiPartyRoomObj = {
   name: 'room for multiparty video meeting',
-  owner_ref: 'multiparty github sample',
+  owner_ref: 'github sample',
   settings: {
+    description: 'Video-Conferencing-Open-Source-Web-Application-Sample',
     scheduled: false,
     adhoc: true,
-    moderators: '1',
-    participants: '5',
+    participants: '6',
     duration: '30',
     quality: 'SD',
     auto_recording: false,
@@ -48,23 +41,18 @@ const multiPartyRoomObj = {
 };
 
 // HTTP Request Header Creation
-const { port } = vcxconfig.SERVER_API_SERVER;
 const options = {
-  host: vcxconfig.SERVER_API_SERVER.host,
-  key: fs.readFileSync(vcxconfig.Certificate.ssl_key).toString(),
-  cert: fs.readFileSync(vcxconfig.Certificate.ssl_cert).toString(),
+  host: 'api.enablex.io',
+  port: 443,
+  key: fs.readFileSync(process.env.CERTIFICATE_SSL_KEY).toString(),
+  cert: fs.readFileSync(process.env.CERTIFICATE_SSL_CERT).toString(),
   headers: {
     'Content-Type': 'application/json',
     Authorization: `Basic ${vcxutil.getBasicAuthToken()}`,
   },
 };
 
-if (port.trim() != '' && port !== undefined) {
-  options.port = port;
-}
-
 // Function: To get Token for a Room
-
 vcxroom.getToken = (details, callback) => {
   options.path = `/v1/rooms/${details.roomId}/tokens`;
   options.method = 'POST';
@@ -74,13 +62,15 @@ vcxroom.getToken = (details, callback) => {
   };
 
   vcxutil.connectServer(options, JSON.stringify(details), (status, data) => {
-    if (status === 'success') callback(status, data);
-    else if (status === 'error') callback(status, data);
+    if (status === 'success') {
+      callback(status, data);
+    } else if (status === 'error') {
+      callback(status, data);
+    }
   });
 };
 
 // Function: To get a list of Rooms
-
 vcxroom.getAllRooms = (callback) => {
   options.path = '/v1/rooms/';
   options.method = 'GET';
@@ -90,18 +80,21 @@ vcxroom.getAllRooms = (callback) => {
 };
 
 // Function: To get information of a Room
-
 vcxroom.getRoom = (roomName, callback) => {
   options.path = `/v1/rooms/${roomName}`;
   options.method = 'GET';
   vcxutil.connectServer(options, null, (status, data) => {
-    if (status === 'success') callback(status, data);
-    else if (status === 'error') callback(status, data);
+    if (status === 'success') {
+      callback(status, data);
+    } else if (status === 'error') {
+      callback(status, data);
+    }
   });
 };
 
+// Function: To create Room
 vcxroom.createRoom = (callback) => {
-  const roomMeta = obj;
+  const roomMeta = roomObj;
   options.path = '/v1/rooms/';
   options.method = 'POST';
   options.headers = {
@@ -109,13 +102,16 @@ vcxroom.createRoom = (callback) => {
     Authorization: `Basic ${vcxutil.getBasicAuthToken()}`,
   };
   vcxutil.connectServer(options, JSON.stringify(roomMeta), (status, data) => {
-    if (status === 'success') callback(status, data);
-    else if (status === 'error') callback(status, data);
+    if (status === 'success') {
+      callback(status, data);
+    } else if (status === 'error') {
+      callback(status, data);
+    }
   });
 };
 
 // Function: To create Room
-vcxroom.createRoomMulti = function createRoom(callback) {
+vcxroom.createRoomMulti = (callback) => {
   const roomMeta = multiPartyRoomObj;
   options.path = '/v1/rooms/';
   options.method = 'POST';
