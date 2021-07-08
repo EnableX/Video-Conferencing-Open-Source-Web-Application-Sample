@@ -12,7 +12,8 @@ https://developer.enablex.io/video/browser-compatibility-of-enablex-video/
 
 ## 1. Important!
 
-When developing a Client Application with EnxRtc.js make sure to include the updated EnxRtc.js polyfills from https://developer.enablex.io/video-api/client-api/web-toolkit/ for RTCPeerConnection and getUserMedia. Otherwise your application will not work in web browsers.
+When developing a Client Application with EnxRtc.js ( present in client/js ), make sure to replace the old EnxRtc.js with updated EnxRtc.js polyfills from https://developer.enablex.io/video-api/client-api/web-toolkit/ for RTCPeerConnection and getUserMedia. Otherwise your application will not work in web browsers.
+
 
 
 ## 2. Trial
@@ -26,9 +27,9 @@ Sign up for a free trial https://portal.enablex.io/cpaas/trial-sign-up/ or try o
 
 #### 3.1.1 App Id and App Key 
 
-* Register with EnableX [https://portal.enablex.io/cpaas/trial-sign-up/] 
-* Create your Application
-* Get your App ID and App Key
+* Create a free account on EnableX [https://portal.enablex.io/cpaas/trial-sign-up/]
+* Create your Project
+* Get the App ID and App Key generated against the Project
 * Clone this Repository `git clone https://github.com/EnableX/Video-Conferencing-Open-Source-Web-Application-Sample.git --recursive` & follow the steps further 
 
 #### 3.1.2 SSL Certificates
@@ -41,7 +42,9 @@ However you may use self-signed Certificate to run this application locally. The
 * https://www.sslchecker.com/csr/self_signed
 * https://www.akadia.com/services/ssh_test_certificate.html  
 
-The following can also be used to create a self-signed certificate.
+The following below can also be used to create a self-signed certificate.
+
+ Linux/Mac
 ```javascript
   cd Video-Conferencing-Open-Source-Web-Application-Sample
   cd server
@@ -50,13 +53,21 @@ The following can also be used to create a self-signed certificate.
   sudo chmod 755 ./certs/example.*
   cd ..
 ```
-
+Windows(Use Git Bash)
+```javascript
+  cd Video-Conferencing-Open-Source-Web-Application-Sample
+  cd server
+  mkdir certs
+  openssl req -x509 -newkey rsa:4096 -keyout ./certs/example.key -out ./certs/example.crt -days 10000 -nodes
+  chmod 755 ./certs/example.*
+  cd ..
+```
 #### 3.1.3 Configure
 
 Before you can run this application, configure the service. Copy the `server/example.env` as `server/.env` and update the values. Or you can set following system environment variables instead:
 
 ```javascript
-  SERVICE_PORT - Node port on which your application will run. Default port set is 5000
+  SERVICE_PORT - Node port on which your application will run. Default port set is 3000
   ENABLEX_APP_ID - Your EnableX `App ID` - It's your username for EnableX API and can be found at Dashboard > Projects https://portal.enablex.io/dashboard/
   ENABLEX_APP_KEY - Your EnableX `App Key` - - It's your password for EnableX API and can be found at Dashboard > Projects https://portal.enablex.io/dashboard/
 ```
@@ -90,7 +101,7 @@ Run `node server.js` inside `server` folder for starting your Server.
 
 #### 3.2.2 Test 
 
-* Open a browser and go to [https://yourdomain.com:4443/](https://yourdomain.com:4443/). The browser should load the App. 
+* Open a browser and go to [https://localhost:3000/](https://localhost:3000/). The browser should load the App. 
 * Allow access to Camera and Mic as and when prompted to start your first RTC Call through EnableX
 * You need to Room ID to join. We have added a "Create Room" link below the login form. Click it to get a Room-Id prefilled in the form. 
 * You can share the Room-ID with anyone to join your Conference.
