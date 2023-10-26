@@ -1,25 +1,29 @@
-# Multi-Party RTC: A Sample Web App using Node.js with EnableX Web Toolkit
+# 1-to-1 Video Calling Application with Face AI: Building with JavaScript and EnableX Toolkit for Web
 
-The Sample Web App demonstrates the use of APIs for EnableX platform to develop basic Multi-Party RTC (Real Time Communication) Application. The main motivation behind this application is to demonstrate usage of APIs and allow developers to ramp up on app by hosting on their own devices instead of directly using servers.
+This is a sample one to one video calling client application written in JavaScript that allows developers to implement video calling capabilities empowered with Face AI in their websites. The application runs on the web browsers (referred as client end point) and utilizes EnableX Web SDK to conduct an RTC session with its peers through EnableX Video Services.The client application performs the following tasks to facilitate an RTC session:
 
-RTC Applications hosted on EnableX platform run natively on supported set of web browsers without any additional plugin downloads. 
+Get token from the application server
+Connect to the room using the token
+Publish audio/video streams in the room
+Subscribe to remote audio/video streams in the room
+Listen to any session related events
+This sample client application also demonstrates the following features:
 
-This basic Multi-Party RTC Application is developed using HTML, CSS, Bootstrap, JavaScript, jQuery, Node.js and EnxRtc (The EnableX Web Toolkit). 
-
->The details of the supported set of web browsers can be found here:
-https://developer.enablex.io/video/browser-compatibility-of-enablex-video/
-
+Mute/Unmute video
+Mute/Unmute audio
+Session Recording
+Chat
+face AI
+Screen share
+Disconnect
 
 ## 1. Important!
 
 When developing a Client Application with EnxRtc.js ( present in client/js ), make sure to replace the old EnxRtc.js with updated EnxRtc.js polyfills from https://developer.enablex.io/video-api/client-api/web-toolkit/ for RTCPeerConnection and getUserMedia. Otherwise your application will not work in web browsers.
 
-
-
 ## 2. Trial
 
 Sign up for a free trial https://portal.enablex.io/cpaas/trial-sign-up/ or try our multiparty video chat https://try.enablex.io/
-
 
 ## 3. Installation
 
